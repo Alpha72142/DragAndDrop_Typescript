@@ -1,0 +1,33 @@
+<div cdkDropListGroup class="main bg-slate-300 h-screen">
+    <div class="content flex flex-row">
+    <div class="columns w-[420px] justify-center  bg-zinc-700 h-screen p-2">
+      <h2>To do</h2>
+      <div
+        cdkDropList
+        [cdkDropListData]="todo"
+        class="flex justify-start m-3 flex-wrap gap-4"
+        (cdkDropListDropped)="drop($event)"
+        [class.dragging]="isDragging" >
+        <div class="w-28 h-fit relative group item bg-white rounded-xl text-zinc-600  shadow-zinc-950 shadow-lg focus:z-50" *ngFor="let item of todo" cdkDrag>
+            <div class="flex h-24 p-8 m-1 items-center justify-center rounded-xl bg-slate-300 text-zinc-600 text-wrap font-bold">
+            {{ item }}
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-container h-screen flex-1">
+    <div class="h-full bg-zinc-200 p-2">
+      <h2>Done</h2>
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="example-list block bg-white min-h-[90vh]"
+        (cdkDropListDropped)="drop($event)"
+        [class.dragging]="isDragging">
+        <div class="h-16 flex justify-center items-center w-full hover:border-2 hover:border-zinc-50 hover:border-dashed bg-zinc-500" *ngFor="let item of done" cdkDrag>{{ item }}</div>
+      </div>
+    </div>
+    </div>
+</div>
+  </div>
+
